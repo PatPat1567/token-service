@@ -1,5 +1,5 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+Creating the basic implementation of a security token service.
 
 # Getting Started
 TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
@@ -9,10 +9,14 @@ TODO: Guide users through getting your code up and running on their own system. 
 4.	API references
 
 # Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+1. Clone master branch from Azure Devops
+2. In command prompt, enter "dotnet run"
+3. In browser, go to https://localhost:5001
+
+No Tests are available at this time.
 
 # Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+No current ways for other users or developers to contribute at this time.
 
 If you want to learn more about creating good readme files then refer the following [guidelines](https://www.visualstudio.com/en-us/docs/git/create-a-readme). You can also seek inspiration from the below readme files:
 - [ASP.NET Core](https://github.com/aspnet/Home)
