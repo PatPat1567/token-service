@@ -16,6 +16,11 @@ namespace TokenService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddIdentityServer()
+                .AddDeveloperSigningCredential()
+                .AddInMemoryClients(Config.Clients)
+                .AddInMemoryIdentityResources(Config.IdentityResources)
+                .AddTestUsers(Config.Users);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -25,6 +30,8 @@ namespace TokenService
             {
                 app.UseDeveloperExceptionPage();
             }
+            
+            app.UseIdentityServer();
 
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
