@@ -1,3 +1,4 @@
+using IdentityServer4;
 using IdentityServer4.Models;
 using IdentityServer4.Test;
 using System.Collections.Generic;
@@ -14,7 +15,35 @@ namespace TokenService
             new IdentityResources.Email()
         };
 
-        public static IEnumerable<TestUser> Users = new List<TestUser>()
+        public static IEnumerable<Client> Clients = new List<Client>()
+        {
+            new Client
+            {
+                ClientId = "client_example",
+                ClientName = "Example App",
+                AllowedGrantTypes = GrantTypes.Implicit,
+
+                RedirectUris =
+                {
+                    "http://example.url/signin-oidc"
+                },
+
+                PostLogoutRedirectUris = 
+                {
+                    "http://example.url/signout-callback-oidc"
+                },
+
+                AllowedScopes = 
+                {
+                    IdentityServerConstants.StandardScopes.OpenId,
+                    IdentityServerConstants.StandardScopes.Profile,
+                    IdentityServerConstants.StandardScopes.Email,
+                }
+            }
+
+        };
+
+        public static List<TestUser> Users = new List<TestUser>()
         {
             new TestUser {SubjectId="user1", Username="user1", Password="user1",
                 Claims =
