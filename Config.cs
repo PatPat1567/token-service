@@ -15,6 +15,14 @@ namespace TokenService
             new IdentityResources.Email()
         };
 
+        public static IEnumerable<ApiResource> ApiResources = new List<ApiResource>
+        {
+            new ApiResource("movie_api", "Movie Review Api")
+            {
+                UserClaims = { "role" }
+            }
+        };
+
         public static IEnumerable<Client> Clients = new List<Client>()
         {
             new Client
@@ -38,6 +46,34 @@ namespace TokenService
                     IdentityServerConstants.StandardScopes.OpenId,
                     IdentityServerConstants.StandardScopes.Profile,
                     IdentityServerConstants.StandardScopes.Email,
+                }
+            },
+            new Client
+            {
+                ClientId = "movie_client_v2",
+                ClientName = "Movies Review App V2",
+                AllowedGrantTypes = GrantTypes.Hybrid,
+                ClientSecrets = 
+                {
+                    new Secret("secret".Sha256())
+                },
+
+                RedirectUris =
+                {
+                    "http://localhost:32360/signin-oidc"
+                },
+
+                PostLogoutRedirectUris = 
+                {
+                    "http://localhost:32360/signout-callback-oidc"
+                },
+
+                AllowedScopes = 
+                {
+                    IdentityServerConstants.StandardScopes.OpenId,
+                    IdentityServerConstants.StandardScopes.Profile,
+                    IdentityServerConstants.StandardScopes.Email,
+                    "movie_api",
                 }
             }
 

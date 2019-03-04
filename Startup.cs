@@ -18,6 +18,7 @@ namespace TokenService
             services.AddMvc();
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential()
+                .AddInMemoryApiResources(Config.ApiResources)
                 .AddInMemoryClients(Config.Clients)
                 .AddInMemoryIdentityResources(Config.IdentityResources)
                 .AddTestUsers(Config.Users);
