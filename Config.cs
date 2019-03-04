@@ -19,18 +19,18 @@ namespace TokenService
         {
             new Client
             {
-                ClientId = "client_example",
-                ClientName = "Example App",
+                ClientId = "movie_client",
+                ClientName = "Movies Review App",
                 AllowedGrantTypes = GrantTypes.Implicit,
 
                 RedirectUris =
                 {
-                    "http://example.url/signin-oidc"
+                    "http://localhost:32361/signin-oidc"
                 },
 
                 PostLogoutRedirectUris = 
                 {
-                    "http://example.url/signout-callback-oidc"
+                    "http://localhost:32361/signout-callback-oidc"
                 },
 
                 AllowedScopes = 
@@ -74,7 +74,7 @@ namespace TokenService
                 {
                     new Claim("name", "User Four"),
                     new Claim("email", "User4@token.service"),
-                    new Claim("role", "Admin"),
+                    new Claim("role", "Customer"),
                 } 
             },
             new TestUser {SubjectId="user5", Username="user5", Password="user5",
@@ -82,7 +82,7 @@ namespace TokenService
                 {
                     new Claim("name", "User Five"),
                     new Claim("email", "User5@token.service"),
-                    new Claim("role", "Producer"),
+                    new Claim("role", "Admin"),
                 } 
             }
         };
